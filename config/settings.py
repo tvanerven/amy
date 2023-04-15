@@ -17,8 +17,8 @@ env = environ.Env(
     CI=(bool, False),
     AMY_DEBUG=(bool, True),
     AMY_SITE_ID=(int, 2),
-    AMY_ALLOWED_HOSTS=(list, ["amy.carpentries.org"]),
-    AMY_DATABASE_HOST=(str, "localhost"),
+    AMY_ALLOWED_HOSTS=(list, ["amy.charminghat.nl"]),
+    AMY_DATABASE_HOST=(str, "database"),
     AMY_DATABASE_PORT=(int, 5432),
     AMY_DATABASE_NAME=(str, "amy"),
     AMY_DATABASE_USER=(str, "amy"),
@@ -28,6 +28,9 @@ env = environ.Env(
     AMY_SOCIAL_AUTH_GITHUB_KEY=(str, ""),
     AMY_SOCIAL_AUTH_GITHUB_SECRET=(str, ""),
     AMY_GITHUB_API_TOKEN=(str, "fakeToken"),
+    AMY_SOCIAL_AUTH_GITHUB_KEY=(str, "918dec4feb5f6568b544"),
+    AMY_SOCIAL_AUTH_GITHUB_SECRET=(str, "0dd0074b2a80c104427a7cf5e647567ad7b0e2e1"),
+    AMY_GITHUB_API_TOKEN=(str, "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"),
     AMY_REDIS_URL=(str, "redis://localhost:6379/"),
     AMY_STATIC_HOST=(str, ""),
     AMY_LIVE_EMAIL=(bool, False),
@@ -47,6 +50,8 @@ env = environ.Env(
     # Feature flags
     AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
     AMY_EMAIL_MODULE_ENABLED=(bool, False),
+    AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
+    AMY_SITE_BANNER=(str, "production"),  # should be "local", "testing", or "production"
 )
 
 # OS environment variables take precedence over variables from .env
