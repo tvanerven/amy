@@ -99,20 +99,20 @@ urlpatterns = [
         "events/",
         include(
             [
-                path("", views.AllEvents.as_view(), name="all_events"),
-                path("add/", views.EventCreate.as_view(), name="event_add"),
-                path("import/", views.event_import, name="event_import"),
-                path("merge/", views.events_merge, name="events_merge"),
+                path("", views.AllEvents.as_view(), name="all_schools"),
+                path("add/", views.EventCreate.as_view(), name="school_add"),
+                path("import/", views.event_import, name="school_import"),
+                path("merge/", views.events_merge, name="school_merge"),
                 path(
                     "metadata_changed/",
                     views.events_metadata_changed,
-                    name="events_metadata_changed",
+                    name="school_metadata_changed",
                 ),
             ]
         ),
     ),
     path(
-        "event/<slug:slug>/",
+        "school/<slug:slug>/",
         include(
             [
                 path("", views.event_details, name="event_details"),
