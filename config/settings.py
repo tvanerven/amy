@@ -51,7 +51,7 @@ env = environ.Env(
     AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
     AMY_EMAIL_MODULE_ENABLED=(bool, False),
     AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
-    AMY_SITE_BANNER=(str, "production"),  # should be "local", "testing", or "production"
+    AMY_SITE_BANNER=(str, "production"),  # "local", "testing", or "production"
 )
 
 # OS environment variables take precedence over variables from .env
