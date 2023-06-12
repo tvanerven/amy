@@ -73,4 +73,6 @@ EXPOSE 80
 
 ENV PATH="${PATH}:/venv/amy/bin"
 RUN chmod +x ./start.sh
+RUN chmod +x ./startrq.sh
+RUn chmod +x ./startrqworker.sh
 CMD ./start.sh

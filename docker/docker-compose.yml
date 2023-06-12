@@ -9,8 +9,8 @@ services:
       POSTGRES_DB: amy
     ports:
       - "5432:5432"
-    # volumes:
-    #   - ../docker/database:/var/lib/postgresql/data
+    volumes:
+      - ../docker/database:/var/lib/postgresql/data
 
   redis:
     command: redis-server --appendonly yes
@@ -30,8 +30,8 @@ services:
     environment:
       - AMY_REDIS_URL=redis://redis:6379/
       - DATABASE_URL=postgres://amy:amypostgresql@database:5432/amy
-    # volumes:
-    #   - .:/amy
+    volumes:
+      - .:/amy
     ports:
       - "8000:8000"
     depends_on:
@@ -42,7 +42,7 @@ services:
     image: amy:latest
     environment:
       - AMY_REDIS_URL=redis://redis:6379/
-    command: python manage.py rqworker -v 2
+    command: ./startrq.sh
     depends_on:
       - redis
       - amy
@@ -51,9 +51,8 @@ services:
     image: amy:latest
     environment:
       - AMY_REDIS_URL=redis://redis:6379/
-    command: python manage.py rqscheduler -v 2
-    environment:
       - PIPENV_DONT_LOAD_ENV=false
+    command: ./startrqworker.sh
     depends_on:
       - redis
       - amy
