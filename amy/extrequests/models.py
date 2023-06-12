@@ -257,12 +257,12 @@ class WorkshopInquiryRequest(
         (
             "forprofit",
             "I am with a corporate or for-profit site. I understand the costs for "
-            "for-profit organisations are four times the price for not-for-profit "
-            "organisations.",
+            "for-profit hosts are four times the price for not-for-profit "
+            "hosts.",
         ),
         (
             "member",
-            "I am with a Member organisation so the workshop fee does not apply "
+            "I am with a Member host so the workshop fee does not apply "
             "(instructor travel costs will still apply for in-person workshops).",
         ),
         (

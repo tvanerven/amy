@@ -4,9 +4,9 @@
 
 {% block content %}
     {% if perms.workshops.add_organization %}
-    <p><a href="{% url 'organization_add' %}" class="btn btn-success">New organization</a></p>
+    <p><a href="{% url 'organization_add' %}" class="btn btn-success">New host</a></p>
     {% else %}
-    <p><a href="{% url 'organization_add' %}" class="btn btn-success disabled">New organization</a></p>
+    <p><a href="{% url 'organization_add' %}" class="btn btn-success disabled">New host</a></p>
     {% endif %}
 {% if all_organizations %}
     <table class="table table-striped">
@@ -39,11 +39,11 @@
     </table>
     {% pagination all_organizations %}
     {% if perms.workshops.add_organization %}
-    <p><a href="{% url 'organization_add' %}" class="btn btn-success">New organization</a></p>
+    <p><a href="{% url 'organization_add' %}" class="btn btn-success">New host</a></p>
     {% else %}
-    <p><a href="{% url 'organization_add' %}" class="btn btn-success disabled">New organization</a></p>
+    <p><a href="{% url 'organization_add' %}" class="btn btn-success disabled">New host</a></p>
     {% endif %}
 {% else %}
-    <p>No organizations.</p>
+    <p>No hosts.</p>
 {% endif %}
 {% endblock %}

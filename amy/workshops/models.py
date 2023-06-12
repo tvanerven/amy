@@ -329,7 +329,7 @@ class Membership(models.Model):
 
     consortium = models.BooleanField(
         default=False,
-        help_text="Determines whether this is a group of organisations working "
+        help_text="Determines whether this is a group of hosts working "
         "together under a consortium.",
     )
 

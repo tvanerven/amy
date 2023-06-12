@@ -5,11 +5,11 @@ from fiscal import views
 
 urlpatterns = [
     # organizations
-    path("organizations/", include([
+    path("hosts/", include([
         path("", views.AllOrganizations.as_view(), name="all_organizations"),
         path("add/", views.OrganizationCreate.as_view(), name="organization_add"),
     ])),
-    path("organization/<str:org_domain>/", include([
+    path("host/<str:org_domain>/", include([
         path("", views.OrganizationDetails.as_view(), name="organization_details"),
         path("edit/", views.OrganizationUpdate.as_view(), name="organization_edit"),
         path("delete/", views.OrganizationDelete.as_view(), name="organization_delete"),
