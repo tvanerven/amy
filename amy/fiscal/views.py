@@ -57,7 +57,7 @@ class AllOrganizations(OnlyForAdminsMixin, AMYListView):
             ),
         )
     )
-    title = "All Organizations"
+    title = "All Hosts"
 
 
 class OrganizationDetails(UnquoteSlugMixin, OnlyForAdminsMixin, AMYDetailView):
@@ -69,7 +69,7 @@ class OrganizationDetails(UnquoteSlugMixin, OnlyForAdminsMixin, AMYDetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Organization {0}".format(self.object)
+        context["title"] = "Host {0}".format(self.object)
         related = ["host", "sponsor", "membership"]
         context["all_events"] = (
             self.object.hosted_events.select_related(*related)
