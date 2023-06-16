@@ -78,7 +78,7 @@ def create_tags(apps, schema_editor):
             'details': 'Alumnus event',
         },
         {
-            'name': 'HIC'
+            'name': 'HIC',
             'priority': 120,
             'details': 'Event occurring in a High income country',
         },
