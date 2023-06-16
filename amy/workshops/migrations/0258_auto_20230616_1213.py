@@ -90,11 +90,12 @@ def create_tags(apps, schema_editor):
     ]
 
     for tag_object in TAGS:
-        obj, created = Tag.objects.get_or_create(**tag_object)
-        if created:
-            print(f"Created {obj.name}")
-        if not created:
-            print(f"{obj.name} already created, skipping.")
+        if not Tag.objects.filter(name=tag_object['name']).exists():
+            obj, created = Tag.objects.get_or_create(**tag_object)
+            if created:
+                print(f"Created {obj.name}")
+            if not created:
+                print(f"{obj.name} already created, skipping.")
 
 
 class Migration(migrations.Migration):
