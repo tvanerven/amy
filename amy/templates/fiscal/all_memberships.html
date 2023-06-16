@@ -4,9 +4,9 @@
 
 {% block content %}
   {% if perms.workshops.add_membership %}
-    <p><a href="{% url 'membership_add' %}" class="btn btn-success">New membership</a></p>
+    <p><a href="{% url 'membership_add' %}" class="btn btn-success">New Sponsor</a></p>
   {% else %}
-    <p><a href="{% url 'membership_add' %}" class="btn btn-success disabled">New membership</a></p>
+    <p><a href="{% url 'membership_add' %}" class="btn btn-success disabled">New Sponsor</a></p>
   {% endif %}
   {% if all_memberships %}
     <table class="table table-striped">
@@ -44,10 +44,10 @@
             {{ membership.instructor_training_seats_remaining }}
           </td>
           <td>
-            <a href="{% url 'membership_details' membership.pk %}" title="View membership"><i class="fas fa-info-circle"></i></a>
+            <a href="{% url 'membership_details' membership.pk %}" title="View sponsor"><i class="fas fa-info-circle"></i></a>
             &nbsp;
             {% if perms.workshops.change_membership %}
-              <a href="{% url 'membership_edit' membership.pk %}" title="Edit membership"><i class="fas fa-edit"></i></a>
+              <a href="{% url 'membership_edit' membership.pk %}" title="Edit sponsor"><i class="fas fa-edit"></i></a>
             {% endif %}
           </td>
         </tr>
@@ -55,11 +55,11 @@
     </table>
     {% pagination all_memberships %}
     {% if perms.workshops.add_membership %}
-      <p><a href="{% url 'membership_add' %}" class="btn btn-success">New membership</a></p>
+      <p><a href="{% url 'membership_add' %}" class="btn btn-success">New Sponsor</a></p>
     {% else %}
-      <p><a href="{% url 'membership_add' %}" class="btn btn-success disabled">New membership</a></p>
+      <p><a href="{% url 'membership_add' %}" class="btn btn-success disabled">New Sponsor</a></p>
     {% endif %}
   {% else %}
-    <p>No memberships.</p>
+    <p>No sponsors.</p>
   {% endif %}
 {% endblock %}

@@ -108,6 +108,8 @@ class Organization(models.Model):
 
     class Meta:
         ordering = ("domain",)
+        verbose_name = "Host"
+        verbose_name_plural = "Hosts"
 
 
 class MemberRole(models.Model):
@@ -179,14 +181,11 @@ class Membership(models.Model):
     name = models.CharField(max_length=STR_LONG)
     MEMBERSHIP_CHOICES = (
         ("partner", "Partner"),
-        ("affiliate", "Affiliate"),
+        ("lmic_host", "LMIC Host"),
         ("sponsor", "Sponsor"),
-        ("bronze", "Bronze"),
-        ("silver", "Silver"),
-        ("gold", "Gold"),
-        ("platinum", "Platinum"),
-        ("titanium", "Titanium"),
-        ("alacarte", "A la carte"),
+        ("hic_host", "HIC Host"),
+        ("funder", "Funder"),
+        ("potential_support", "Potential Support"),
     )
     variant = models.CharField(
         max_length=STR_MED,
@@ -326,7 +325,7 @@ class Membership(models.Model):
 
     consortium = models.BooleanField(
         default=False,
-        help_text="Determines whether this is a group of organisations working "
+        help_text="Determines whether this is a group of hosts working "
         "together under a consortium.",
     )
 
@@ -542,6 +541,10 @@ class Membership(models.Model):
         b = self.inhouse_instructor_training_seats_utilized
         c = self.inhouse_instructor_training_seats_rolled_over or 0
         return a - b - c
+
+    class Meta:
+        verbose_name = "Sponsor"
+        verbose_name_plural = "Sponsors"
 
 
 # ------------------------------------------------------------
@@ -1507,6 +1510,8 @@ class Event(AssignmentMixin, RQJobsMixin, models.Model):
 
     class Meta:
         ordering = ("-start",)
+        verbose_name = "School"
+        verbose_name_plural = "Schools"
 
     def __str__(self):
         return self.slug

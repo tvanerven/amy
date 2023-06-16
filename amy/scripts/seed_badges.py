@@ -22,49 +22,19 @@ BadgeDef = TypedDict(
 
 BADGES: list[BadgeDef] = [
     {
-        "name": "swc-instructor",
-        "title": "Software Carpentry Instructor",
-        "criteria": "Teaching at Software Carpentry workshops or online",
-    },
-    {
-        "name": "dc-instructor",
-        "title": "Data Carpentry Instructor",
-        "criteria": "Teaching at Data Carpentry workshops or online",
-    },
-    {
         "name": "maintainer",
         "title": "Maintainer",
         "criteria": "Maintainer of Software or Data Carpentry lesson",
     },
     {
         "name": "trainer",
-        "title": "Trainer",
+        "title": "Instructor Trainer",
         "criteria": "Teaching instructor training workshops",
-    },
-    {
-        "name": "mentor",
-        "title": "Mentor",
-        "criteria": "Mentor of Carpentry Instructors",
-    },
-    {
-        "name": "mentee",
-        "title": "Mentee",
-        "criteria": "Mentee in Carpentry Mentorship Program",
-    },
-    {
-        "name": "lc-instructor",
-        "title": "Library Carpentry Instructor",
-        "criteria": "Teaching at Library Carpentry workshops or online",
     },
     {
         "name": "creator",
         "title": "Creator",
         "criteria": "Creating learning materials and other content",
-    },
-    {
-        "name": "member",
-        "title": "Member",
-        "criteria": "Software Carpentry Foundation member",
     },
     {
         "name": "organizer",
@@ -75,6 +45,56 @@ BADGES: list[BadgeDef] = [
         "name": "instructor",
         "title": "Instructor",
         "criteria": "Teaching at The Carpentries workshops or online",
+    },
+    {
+        "name": "tester",
+        "title": "Tester",
+        "criteria": "Teaching at The Carpentries workshops or online",
+    },
+    {
+        "name": "add-alumnus",
+        "title": "ADD Alumnus",
+        "criteria": "Alumnus at ADD",
+    },
+    {
+        "name": "co-chair",
+        "title": "Co-Chair",
+        "criteria": "Is co-chair",
+    },
+    {
+        "name": "ab-member",
+        "title": "AB Member",
+        "criteria": "Is member of AB",
+    },
+    {
+        "name": "funder",
+        "title": "Funder",
+        "criteria": "Provides funding",
+    },
+    {
+        "name": "ab-chair",
+        "title": "AB Chair",
+        "criteria": "Is chair of AB",
+    },
+    {
+        "name": "helper",
+        "title": "Helper",
+        "criteria": "Is a helper",
+    },
+    {
+        "name": "instructor-trainee",
+        "title": "Instructor Trainee",
+        "criteria": "Is an instructor trainee",
+    },
+    {
+        "name": "support",
+        "title": "Support",
+        "criteria": "Tasked with support work",
+    },
+    {
+        "name": "learner",
+        "title": "Learner",
+        "criteria": "Intends to learn or is enrolled in a training programme",
     },
 ]
 

@@ -578,7 +578,7 @@ def all_trainingrequests(request):
                 if remaining <= 0:
                     messages.warning(
                         request,
-                        f'Membership "{membership}" is using more training seats than '
+                        f'Sponsor "{membership}" is using more training seats than '
                         "it's been allowed.",
                     )
 
@@ -601,7 +601,7 @@ def all_trainingrequests(request):
                     messages.warning(
                         request,
                         f'Training "{event}" has start or end date outside '
-                        f'membership "{membership}" agreement dates.',
+                        f'spongor "{membership}" agreement dates.',
                     )
 
             messages.success(

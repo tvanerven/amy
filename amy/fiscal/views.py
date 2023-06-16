@@ -57,7 +57,7 @@ class AllOrganizations(OnlyForAdminsMixin, AMYListView):
             ),
         )
     )
-    title = "All Organizations"
+    title = "All Hosts"
 
 
 class OrganizationDetails(UnquoteSlugMixin, OnlyForAdminsMixin, AMYDetailView):
@@ -69,7 +69,7 @@ class OrganizationDetails(UnquoteSlugMixin, OnlyForAdminsMixin, AMYDetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Organization {0}".format(self.object)
+        context["title"] = "Host {0}".format(self.object)
         related = ["host", "sponsor", "membership"]
         context["all_events"] = (
             self.object.hosted_events.select_related(*related)
@@ -134,7 +134,7 @@ class AllMemberships(OnlyForAdminsMixin, AMYListView):
         .prefetch_related("organizations")
         .order_by("id")
     )
-    title = "All Memberships"
+    title = "All Sponsors"
 
 
 class MembershipDetails(OnlyForAdminsMixin, AMYDetailView):
@@ -190,7 +190,7 @@ class MembershipCreate(
         if next_year != form.cleaned_data["agreement_end"]:
             messages.warning(
                 self.request,
-                "Membership agreement end is not full year from the start. "
+                "Sponsor agreement end is not full year from the start. "
                 f"It should be: {next_year:%Y-%m-%d}.",
             )
 
@@ -477,7 +477,7 @@ class MembershipCreateRollOver(
     form_class = MembershipRollOverForm
     pk_url_kwarg = "membership_id"
     success_message = (
-        'Membership "{membership}" was successfully rolled-over to a new '
+        'Sponsor "{membership}" was successfully rolled-over to a new '
         'membership "{new_membership}"'
     )
 

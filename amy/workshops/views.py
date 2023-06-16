@@ -949,7 +949,7 @@ class AllEvents(OnlyForAdminsMixin, AMYListView):
         .order_by("-start")
     )
     filter_class = EventFilter
-    title = "All Events"
+    title = "All Schools"
 
 
 @admin_required
@@ -1020,7 +1020,7 @@ def event_details(request, slug):
     )
 
     context = {
-        "title": "Event {0}".format(event),
+        "title": "School {0}".format(event),
         "event": event,
         "tasks": tasks,
         "member_sites": member_sites,
@@ -1420,7 +1420,7 @@ def events_merge(request):
 
     if not obj_a_pk and not obj_b_pk:
         context = {
-            "title": "Merge Events",
+            "title": "Merge Schools",
             "form": EventsSelectionForm(),
         }
         return render(request, "generic_form.html", context)
@@ -1511,7 +1511,7 @@ def events_merge(request):
             messages.error(request, "Fix errors in the form.")
 
     context = {
-        "title": "Merge two events",
+        "title": "Merge two schools",
         "obj_a": obj_a,
         "obj_b": obj_b,
         "form": form,
@@ -1534,7 +1534,7 @@ def events_metadata_changed(request):
         events = events.filter(assigned_to=assigned_to)
 
     context = {
-        "title": "Events with metadata changed",
+        "title": "Schools with metadata changed",
         "events": events,
         "assignment_form": assignment_form,
         "assigned_to": assigned_to,

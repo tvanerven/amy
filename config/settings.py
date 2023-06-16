@@ -17,7 +17,7 @@ env = environ.Env(
     CI=(bool, False),
     AMY_DEBUG=(bool, True),
     AMY_SITE_ID=(int, 2),
-    AMY_ALLOWED_HOSTS=(list, ["amy.charminghat.nl"]),
+    AMY_ALLOWED_HOSTS=(list, ["amy.charminghat.nl", "0.0.0.0"]),
     AMY_DATABASE_HOST=(str, "database"),
     AMY_DATABASE_PORT=(int, 5432),
     AMY_DATABASE_NAME=(str, "amy"),
@@ -44,7 +44,7 @@ env = environ.Env(
         "https://workshop-reports.carpentries.org/?key={hash}&slug={slug}",
     ),
     AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
-    AMY_SITE_BANNER=(str, "production"),  # should be "local", "testing", or "production"
+    AMY_SITE_BANNER=(str, "production"),  # "local", "testing", or "production"
 )
 
 # OS environment variables take precedence over variables from .env
