@@ -59,7 +59,7 @@ BADGES: list[BadgeDef] = [
     {
         "name": "co-chair",
         "title": "Co-Chair",
-        "criteria": "Is co-chair"
+        "criteria": "Is co-chair",
     },
     {
         "name": "ab-member",
