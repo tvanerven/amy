@@ -6,9 +6,9 @@
 
 {% block content %}
   {% if perms.workshops.add_event %}
-    <p><a href="{% url 'school_add' %}" class="btn btn-success">New school</a></p>
+    <p><a href="{% url 'event_add' %}" class="btn btn-success">New school</a></p>
   {% else %}
-    <p><a href="{% url 'school_add' %}" class="btn btn-success disabled">New school</a></p>
+    <p><a href="{% url 'event_add' %}" class="btn btn-success disabled">New school</a></p>
   {% endif %}
 {% if all_events %}
     <table class="table table-striped">
@@ -61,9 +61,9 @@
     </table>
     {% pagination all_events %}
     {% if perms.workshops.add_event %}
-    <p><a href="{% url 'school_add' %}" class="btn btn-success">New school</a></p>
+    <p><a href="{% url 'event_add' %}" class="btn btn-success">New school</a></p>
     {% else %}
-    <p><a href="{% url 'school_add' %}" class="btn btn-success disabled">New school</a></p>
+    <p><a href="{% url 'event_add' %}" class="btn btn-success disabled">New school</a></p>
     {% endif %}
 {% else %}
     <p>No events.</p>
