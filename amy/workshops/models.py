@@ -184,14 +184,11 @@ class Membership(models.Model):
     name = models.CharField(max_length=STR_LONG)
     MEMBERSHIP_CHOICES = (
         ("partner", "Partner"),
-        ("affiliate", "Affiliate"),
+        ("lmic_host", "LMIC Host"),
         ("sponsor", "Sponsor"),
-        ("bronze", "Bronze"),
-        ("silver", "Silver"),
-        ("gold", "Gold"),
-        ("platinum", "Platinum"),
-        ("titanium", "Titanium"),
-        ("alacarte", "A la carte"),
+        ("hic_host", "HIC Host"),
+        ("funder", "Funder"),
+        ("potential_support", "Potential Support"),
     )
     variant = models.CharField(
         max_length=STR_MED,
