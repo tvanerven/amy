@@ -15,11 +15,11 @@ urlpatterns = [
         path("delete/", views.OrganizationDelete.as_view(), name="organization_delete"),
     ])),
     # memberships
-    path("memberships/", include([
+    path("sponsors/", include([
         path("", views.AllMemberships.as_view(), name="all_memberships"),
         path("add/", views.MembershipCreate.as_view(), name="membership_add"),
     ])),
-    path("membership/<int:membership_id>/", include([
+    path("sponsor/<int:membership_id>/", include([
         path("", views.MembershipDetails.as_view(), name="membership_details"),
         path("edit/", views.MembershipUpdate.as_view(), name="membership_edit"),
         path("members/", views.MembershipMembers.as_view(), name="membership_members"),

@@ -477,7 +477,7 @@ class MembershipCreateRollOver(
     form_class = MembershipRollOverForm
     pk_url_kwarg = "membership_id"
     success_message = (
-        'Membership "{membership}" was successfully rolled-over to a new '
+        'Sponsor "{membership}" was successfully rolled-over to a new '
         'membership "{new_membership}"'
     )
 

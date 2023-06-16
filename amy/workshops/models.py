@@ -108,6 +108,8 @@ class Organization(models.Model):
 
     class Meta:
         ordering = ("domain",)
+        verbose_name = "Host"
+        verbose_name_plural = "Hosts"
 
 
 class MemberRole(models.Model):
@@ -542,6 +544,10 @@ class Membership(models.Model):
         b = self.inhouse_instructor_training_seats_utilized
         c = self.inhouse_instructor_training_seats_rolled_over or 0
         return a - b - c
+
+    class Meta:
+        verbose_name = "Sponsor"
+        verbose_name_plural = "Sponsors"
 
 
 # ------------------------------------------------------------
@@ -1617,6 +1623,10 @@ class Event(AssignmentMixin, RQJobsMixin, models.Model):
             self.longitude = None
 
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "School"
+        verbose_name_plural = "Schools"
 
 
 # ------------------------------------------------------------
