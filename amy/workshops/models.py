@@ -1506,6 +1506,8 @@ class Event(AssignmentMixin, RQJobsMixin, models.Model):
 
     class Meta:
         ordering = ("-start",)
+        verbose_name = "School"
+        verbose_name_plural = "Schools"
 
     def __str__(self):
         return self.slug
@@ -1616,10 +1618,6 @@ class Event(AssignmentMixin, RQJobsMixin, models.Model):
             self.longitude = None
 
         super().save(*args, **kwargs)
-
-    class Meta:
-        verbose_name = "School"
-        verbose_name_plural = "Schools"
 
 
 # ------------------------------------------------------------
