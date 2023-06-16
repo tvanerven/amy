@@ -21,4 +21,5 @@
     --access-logfile - \
     --capture-output \
     --env DJANGO_SETTINGS_MODULE=config.settings \
+    --reload \
     config.wsgi
