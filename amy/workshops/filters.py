@@ -285,17 +285,13 @@ class PersonFilter(AMYFilterSet):
     knowledge_domain = django_filters.ModelMultipleChoiceFilter(
         queryset=KnowledgeDomain.objects.all(),
         label="Knowledge domains",
-        widget=ModelSelect2MultipleWidget(
-            data_view="knowledge-domains-lookup"
-        ),
+        widget=ModelSelect2MultipleWidget(data_view="knowledge-domains-lookup"),
     )
 
     lessons = django_filters.ModelMultipleChoiceFilter(
         queryset=Lesson.objects.all(),
         label="Lessons",
-        widget=ModelSelect2MultipleWidget(
-            data_view="lesson-lookup"
-        ),
+        widget=ModelSelect2MultipleWidget(data_view="lesson-lookup"),
     )
 
     order_by = NamesOrderingFilter(
