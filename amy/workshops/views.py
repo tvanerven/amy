@@ -1510,7 +1510,7 @@ def events_merge(request):
             else:
                 messages.success(
                     request,
-                    "Events were merged successfully. "
+                    "Schools were merged successfully. "
                     "You were redirected to the base "
                     "event.",
                 )

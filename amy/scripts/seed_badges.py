@@ -52,9 +52,9 @@ BADGES: list[BadgeDef] = [
         "criteria": "Teaching at The Carpentries workshops or online",
     },
     {
-        "name": "add-alumnus",
-        "title": "ADD Alumnus",
-        "criteria": "Alumnus at ADD",
+        "name": "alumnus",
+        "title": "Alumnus",
+        "criteria": "Alumnus",
     },
     {
         "name": "co-chair",
@@ -106,6 +106,7 @@ def badge_transform(badge_def: dict) -> Badge:
 
 
 def run() -> None:
+    Badge.objects.all().delete()§
     seed_models(Badge, BADGES, "name", badge_transform, logger)
 
     deprecate_models(Badge, DEPRECATED_BADGES, "name", logger)
