@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           {% navbar_element "Dashboard" "admin-dashboard" %}
-          {% navbar_element "Schools" "all_schools" %}
+          {% navbar_element "Schools" "all_events" %}
           {% navbar_element "Hosts" "all_organizations" %}
           {% navbar_element "Sponsors" "all_memberships" %}
           {% navbar_element "Persons" "all_persons" %}
@@ -72,7 +72,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="addDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="addDropdown">
             {% block right-dropdown %}
-              {% navbar_element_permed "New event" "school_add" "workshops.add_event" True %}
+              {% navbar_element_permed "New event" "event_add" "workshops.add_event" True %}
               {% navbar_element_permed "New organization" "organization_add" "workshops.add_organization" True %}
               {% navbar_element_permed "New person" "person_add" "workshops.add_person" True %}
               <div class="dropdown-divider"></div>
