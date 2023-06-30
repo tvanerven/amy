@@ -106,7 +106,8 @@ def badge_transform(badge_def: dict) -> Badge:
 
 
 def run() -> None:
-    Badge.objects.all().delete()§
+    names = [item['name'] for item in BADGES]
+    Badge.objects.all().exclude(name__in=names).delete()
     seed_models(Badge, BADGES, "name", badge_transform, logger)
 
     deprecate_models(Badge, DEPRECATED_BADGES, "name", logger)
