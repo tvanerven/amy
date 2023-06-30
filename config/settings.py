@@ -188,11 +188,16 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
     "social_core.backends.github.GithubOAuth2",
+    "social_core.backends.orcid.OrcidOAuth2Sandbox",
     "django.contrib.auth.backends.ModelBackend",
 ]
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ["github"]
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ["github", "orcid"]
 SOCIAL_AUTH_GITHUB_KEY = env("AMY_SOCIAL_AUTH_GITHUB_KEY")
 SOCIAL_AUTH_GITHUB_SECRET = env("AMY_SOCIAL_AUTH_GITHUB_SECRET")
+SOCIAL_AUTH_ORCID_KEY = env("AMY_SOCIAL_AUTH_ORCID_KEY")
+SOCIAL_AUTH_ORCID_SECRET = env("AMY_SOCIAL_AUTH_ORCID_KEY")
+SOCIAL_AUTH_ORCID_SANDBOX_KEY = env("AMY_SOCIAL_AUTH_ORCID_SANDBOX_KEY")
+SOCIAL_AUTH_ORCID_SANDBOX_SECRET = env("AMY_SOCIAL_AUTH_ORCID_SANDBOX_SECRET")
 if not DEBUG and not (SOCIAL_AUTH_GITHUB_KEY and SOCIAL_AUTH_GITHUB_SECRET):
     raise ImproperlyConfigured(
         "Logging using github account will *not* work, "

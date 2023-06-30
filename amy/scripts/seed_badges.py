@@ -96,6 +96,16 @@ BADGES: list[BadgeDef] = [
         "title": "Learner",
         "criteria": "Intends to learn or is enrolled in a training programme",
     },
+    {
+        "name": "host",
+        "title": "Host",
+        "criteria": "Acts as host for training programmes",
+    },
+    {
+        "name": "reviewer",
+        "title": "Reviewer",
+        "criteria": "Reviews training materials",
+    },
 ]
 
 # --------------------------------------------------------------------------------------

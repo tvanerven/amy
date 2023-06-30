@@ -17,6 +17,22 @@ TRANSLATE_NAMES = {
     None: ['dc/spreadsheet', 'dc/cloud']
 }
 
+SORDS_NAMES = {
+    None: ['Software Carpentry - Command line'],
+    None: ['Software Carpentry - Git'],
+    None: ['Software Carpentry - R'],
+    None: ['Software Carpentry - Python'],
+    None: ['Visualisation'],
+    None: ['Open and Responsible Research'],
+    None: ['Research Data Management'],
+    None: ['Computational Infrastructures'],
+    None: ['Information Security'],
+    None: ['Author Carpentry'],
+    None: ['Machine Learning'],
+    None: ['Neural Networks'],
+    None: ['Data stewardship'],
+}
+
 EXTRA_LEGACY_NAMES = ['MATLAB']
 
 
@@ -64,6 +80,11 @@ def remove_old_skill_names(apps, schema_editor):
     for old_name in EXTRA_LEGACY_NAMES:
         Lesson.objects.filter(name=old_name).delete()
 
+def replace_all_by_sords(apps, schema_editor):
+    Lesson = apps.get_model('workshops', 'Lesson')
+    Lesson.objects.all().delete()
+    for (old_name, new_name) in SORDS_NAMES.items():
+        Lesson.objects.create(name=new_name)
 
 class Migration(migrations.Migration):
 
@@ -75,5 +96,6 @@ class Migration(migrations.Migration):
         migrations.RunPython(add_new_lesson_names),
         migrations.RunPython(fix_duplicate_names),
         migrations.RunPython(replace_qualifications),
-        migrations.RunPython(remove_old_skill_names)
+        migrations.RunPython(remove_old_skill_names),
+        migrations.RunPython(replace_all_by_sords)
     ]
