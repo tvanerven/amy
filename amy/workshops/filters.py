@@ -282,9 +282,9 @@ class PersonFilter(AMYFilterSet):
         ),
     )
 
-    knowledge_domain = django_filters.ModelMultipleChoiceFilter(
+    domains = django_filters.ModelMultipleChoiceFilter(
         queryset=KnowledgeDomain.objects.all(),
-        label="Knowledge domains",
+        label="Domains",
         widget=ModelSelect2MultipleWidget(data_view="knowledge-domains-lookup"),
     )
 
@@ -303,6 +303,8 @@ class PersonFilter(AMYFilterSet):
         fields = [
             "badges",
             "taught_workshops",
+            "domains",
+            "lessons"
         ]
 
 

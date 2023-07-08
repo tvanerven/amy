@@ -366,17 +366,23 @@ def person_bulk_add_confirmation(request):
         families = request.POST.getlist("family")
         usernames = request.POST.getlist("username")
         emails = request.POST.getlist("email")
+        countries = request.POST.getlist('country')
+        affiliations = request.POST.getlist('affiliation')
+        occupations = request.POST.getlist('occupation')
         events = request.POST.getlist("event")
         roles = request.POST.getlist("role")
-        data_update = zip(personals, families, usernames, emails, events, roles)
+        data_update = zip(personals, families, usernames, emails, countries, affiliations, occupations, events, roles)
         for k, record in enumerate(data_update):
-            personal, family, username, email, event, role = record
+            personal, family, username, email, country, affiliation, occupation, event, role = record
             existing_person_id = persons_tasks[k].get("existing_person_id")
             # "field or None" converts empty strings to None values
             persons_tasks[k] = {
                 "personal": personal,
                 "family": family,
                 "username": username,
+                "country": country,
+                "occupation": occupation,
+                "affiliation": affiliation,
                 "email": email or None,
                 "existing_person_id": existing_person_id,
             }

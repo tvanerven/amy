@@ -736,7 +736,7 @@ class Person(
     """Represent a single person."""
 
     # These attributes should always contain field names of Person
-    PERSON_UPLOAD_FIELDS = ("personal", "family", "email")
+    PERSON_UPLOAD_FIELDS = ("personal", "family", "email", "country", "occupation", "affiliation")
     PERSON_TASK_EXTRA_FIELDS = ("event", "role")
     PERSON_TASK_UPLOAD_FIELDS = PERSON_UPLOAD_FIELDS + PERSON_TASK_EXTRA_FIELDS
 

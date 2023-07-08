@@ -2,6 +2,7 @@ import csv
 from io import TextIOBase
 import logging
 from typing import Literal
+from django_countries import countries
 
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.db import IntegrityError, transaction
@@ -105,6 +106,9 @@ def verify_upload_person_task(data, match=False):
         personal = item.get("personal", "")
         family = item.get("family", "")
         person_id = item.get("existing_person_id", None)
+        country = item.get("country", None)
+        occupation = item.get("occupation", "")
+        affiliation = item.get("affiliation", "")
         person = None
 
         # try to match with first similar person
@@ -157,6 +161,10 @@ def verify_upload_person_task(data, match=False):
             item["person_exists"] = True
         else:
             # force a newly created username
+            if item.get("country"):
+                for k,v in dict(countries).items():
+                    if item.get('country') == v:
+                        item['country'] = k
             if not item.get("username"):
                 item["username"] = create_username(personal, family)
             item["person_exists"] = False
@@ -229,8 +237,9 @@ def create_uploaded_persons_tasks(data, request=None):
 
     with transaction.atomic():
         for row in data:
+            print(row)
             row_repr = (
-                "{personal} {family} {username} <{email}>, {role} at {event}"
+                "{personal} {family} {username} <{email}> {country} {occupation} {affiliation}, {role} at {event}"
             ).format(**row)
 
             try:

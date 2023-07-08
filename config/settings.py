@@ -27,10 +27,11 @@ env = environ.Env(
     AMY_RECAPTCHA_PRIVATE_KEY=(str, "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"),
     AMY_SOCIAL_AUTH_GITHUB_KEY=(str, ""),
     AMY_SOCIAL_AUTH_GITHUB_SECRET=(str, ""),
+    AMY_SOCIAL_AUTH_ORCID_KEY=(str, ""),
+    AMY_SOCIAL_AUTH_ORCID_SECRET=(str,""),
+    AMY_SOCIAL_AUTH_ORCID_SANDBOX_KEY=(str, ""),
+    AMY_SOCIAL_AUTH_ORCID_SANDBOX_SECRET=(str, ""),
     AMY_GITHUB_API_TOKEN=(str, "fakeToken"),
-    AMY_SOCIAL_AUTH_GITHUB_KEY=(str, "918dec4feb5f6568b544"),
-    AMY_SOCIAL_AUTH_GITHUB_SECRET=(str, "0dd0074b2a80c104427a7cf5e647567ad7b0e2e1"),
-    AMY_GITHUB_API_TOKEN=(str, "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"),
     AMY_REDIS_URL=(str, "redis://localhost:6379/"),
     AMY_STATIC_HOST=(str, ""),
     AMY_LIVE_EMAIL=(bool, False),
@@ -46,11 +47,9 @@ env = environ.Env(
         str,
         "https://workshop-reports.carpentries.org/?key={hash}&slug={slug}",
     ),
-    AMY_SITE_BANNER=(str, "local"),  # should be "local", "testing", or "production"
     # Feature flags
     AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
     AMY_EMAIL_MODULE_ENABLED=(bool, False),
-    AMY_INSTRUCTOR_RECRUITMENT_ENABLED=(bool, False),
     AMY_SITE_BANNER=(str, "production"),  # "local", "testing", or "production"
 )
 
@@ -188,7 +187,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
     "social_core.backends.github.GithubOAuth2",
-    "social_core.backends.orcid.OrcidOAuth2Sandbox",
+    "social_core.backends.orcid.ORCIDOAuth2",
     "django.contrib.auth.backends.ModelBackend",
 ]
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ["github", "orcid"]
@@ -206,6 +205,7 @@ if not DEBUG and not (SOCIAL_AUTH_GITHUB_KEY and SOCIAL_AUTH_GITHUB_SECRET):
     )
 # Github API token (optional). Setting this token reduces limits and quotes
 # on Github API.
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 GITHUB_API_TOKEN = env("AMY_GITHUB_API_TOKEN")
 SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_details",
