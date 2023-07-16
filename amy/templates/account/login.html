@@ -30,9 +30,9 @@
       </div>
 
       <div class="col-12 col-md-5">
-        <h4>For The Carpentries Instructors</h4>
-        <p><a class="btn btn-primary w-100" href="{% url 'social:begin' 'github' %}{% if next %}?next={{ next }}{% endif %}"><i class="fab fa-github"></i> Log in with your GitHub account</a></p>
-        <p>Having trouble logging in? Contact us at <a href="mailto:team@carpentries.org">team@carpentries.org</a>.</p>
+        <h4>For Alumni</h4>
+        <p><a class="btn btn-primary w-100" href="{% url 'social:begin' 'orcid' %}{% if next %}?next={{ next }}{% endif %}"><i class="fab fa-orcid"></i> Log in with your Orcid account</a></p>
+        <p>Having trouble logging in? Contact us at <a href="mailto:info@datascienceschools.org">info@datascienceschools.org</a>.</p>
       </div>
     </div>
 {% endblock %}
