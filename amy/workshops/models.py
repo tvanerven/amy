@@ -908,6 +908,10 @@ class Person(
         list of UserSocialAuth."""
         return self.social_auth.filter(provider="github")
 
+    @property
+    def orcid_usersocialauth(self):
+        return self.social_auth.filter(provider="orcid")
+
     def get_github_uid(self):
         """Return UID (int) of GitHub account for username == `Person.github`.
 
@@ -939,6 +943,11 @@ class Person(
             self.github_usersocialauth.delete()
             return UserSocialAuth.objects.create(
                 provider="github", user=self, uid=github_uid, extra_data={}
+            )
+        if self.orcid is not None:
+            self.orcid_usersocialauth.delete()
+            return UserSocialAuth.objects.create(
+                provider='orcid', user=self, uid=self.orcid, extra_data={}
             )
         else:
             return False
