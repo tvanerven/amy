@@ -27,8 +27,8 @@ env = environ.Env(
     AMY_RECAPTCHA_PRIVATE_KEY=(str, "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"),
     AMY_SOCIAL_AUTH_GITHUB_KEY=(str, ""),
     AMY_SOCIAL_AUTH_GITHUB_SECRET=(str, ""),
-    AMY_SOCIAL_AUTH_ORCID_KEY=(str, ""),
-    AMY_SOCIAL_AUTH_ORCID_SECRET=(str,""),
+    AMY_SOCIAL_AUTH_ORCID_KEY=(str, "APP-TRXBO4DW2QQ9XX3K"),
+    AMY_SOCIAL_AUTH_ORCID_SECRET=(str,"0c73c052-5172-4dd8-a132-ce1e296e9f7f"),
     AMY_SOCIAL_AUTH_ORCID_SANDBOX_KEY=(str, ""),
     AMY_SOCIAL_AUTH_ORCID_SANDBOX_SECRET=(str, ""),
     AMY_GITHUB_API_TOKEN=(str, "fakeToken"),
@@ -294,7 +294,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "workshops.middleware.github_auth.GithubAuthMiddleware",
+    "workshops.middleware.orcid_middleware.OrcidAuthMiddleware",
     "consents.middleware.TermsMiddleware",
 ]
 
@@ -641,3 +641,6 @@ if SITE_BANNER_STYLE not in ("local", "testing", "production"):
     raise ImproperlyConfigured(
         "SITE_BANNER_STYLE accepts only one of 'local', 'testing', 'production'."
     )
+
+# Enable SSL redirect to work with reverse proxy.
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
