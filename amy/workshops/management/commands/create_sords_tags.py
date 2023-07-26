@@ -67,7 +67,7 @@ TAGS = [
     {
         'name': 'for-profit',
         'priority': 100,
-            'details': 'Corporate or for-profit institutions that may be paying higher fees',
+        'details': 'Corporate or for-profit institutions that may be paying higher fees',
     },
     {
         'name': 'AE',

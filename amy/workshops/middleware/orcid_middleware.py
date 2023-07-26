@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.deprecation import MiddlewareMixin
 
-from workshops.orcid_auth import NoPersonAssociatedWithOrcidAccount
+from workshops.middleware.orcid_auth import NoPersonAssociatedWithOrcidAccount
 
 
 class OrcidAuthMiddleware(MiddlewareMixin):
