@@ -394,11 +394,11 @@ class EventForm(forms.ModelForm):
         widget=ModelSelect2Widget(data_view="language-lookup"),
     )
 
-    country = CountryField().formfield(
-        required=False,
-        help_text=Event._meta.get_field("country").help_text,
-        widget=Select2Widget,
-    )
+    # country = CountryField().formfield(
+    #     required=False,
+    #     help_text=Event._meta.get_field("country").help_text,
+    #     widget=Select2Widget,
+    # )
 
     comment = MarkdownxFormField(
         label="Comment",
@@ -426,13 +426,13 @@ class EventForm(forms.ModelForm):
             "url",
             "language",
             "reg_key",
-            "venue",
+            #"venue",
             "manual_attendance",
             "contact",
-            "country",
-            "address",
-            "latitude",
-            "longitude",
+            #"country",
+            #"address",
+            #"latitude",
+            #"longitude",
             "open_TTT_applications",
             "curricula",
             "lessons",
@@ -487,18 +487,18 @@ class EventForm(forms.ModelForm):
             "contact",
             "instructors_pre",
             "instructors_post",
-            Div(
-                Div(HTML("Location details"), css_class="card-header"),
-                Div(
-                    "country",
-                    "venue",
-                    "address",
-                    "latitude",
-                    "longitude",
-                    css_class="card-body",
-                ),
-                css_class="card mb-2",
-            ),
+            # Div(
+            #     Div(HTML("Location details"), css_class="card-header"),
+            #     Div(
+            #         "country",
+            #         "venue",
+            #         "address",
+            #         "latitude",
+            #         "longitude",
+            #         css_class="card-body",
+            #     ),
+            #     css_class="card mb-2",
+            # )
         )
 
         # if we want to show lessons, we need to alter existing layout
