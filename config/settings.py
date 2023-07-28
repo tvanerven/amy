@@ -212,7 +212,7 @@ SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.auth_allowed",
     "social_core.pipeline.social_auth.social_user",
     # If we can't find Person associated with given github account, abort.
-    "workshops.orcid_auth.abort_if_no_user_found",
+    "workshops.middleware.orcid_auth.abort_if_no_user_found",
     # The default pipeline includes 'social.pipeline.user.create_user' here,
     # but we don't want to register a new Person when somebody logs in
     # using GitHub account that is not associated with any Person.
