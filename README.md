@@ -32,3 +32,7 @@ Presently, the test environment is running with DigitalOcean in Amsterdam.
 ## Development
 
 - Be very careful with model changes/migrations; Django manages it's own migrations, so your migrations cannot be on top in this construction. The current renaming stuff will cause tests to fail (since Amy has a check to confirm all migrations are applied, and technically these changes would "change" certain table names but that's wholly optional). If you can - make management commands for the changes you want to run, or update existing files.
+
+<img src="https://github.com/tvanerven/materialsfrontend/raw/main/eu_logo.png" width="64" height="47">This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 101017536. The funding was awarded through the RDA (https://www.rd-alliance.org/) Open Call mechanism (https://eoscfuture-grants.eu/provider/research-data-alliance) based on evaluations of external, independent experts.
+
+

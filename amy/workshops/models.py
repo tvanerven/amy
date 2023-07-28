@@ -1942,7 +1942,6 @@ class Curriculum(ActiveMixin, models.Model):
     CARPENTRIES_CHOICES = (
         ("SWC", "Software Carpentry"),
         ("DC", "Data Carpentry"),
-        ("LC", "Library Carpentry"),
         ("", "unspecified / irrelevant"),
     )
     carpentry = models.CharField(
