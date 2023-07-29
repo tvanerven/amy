@@ -10,19 +10,14 @@ TAGS = [
         'details': 'Only for automated emails',
     },
     {
-        'name': 'Circuits',
-        'priority': 4,
-        'details': 'Events with only partial curriculum.',
-    },
-    {
         'name': 'online',
         'priority': 7,
         'details': 'Events taking place entirely online.',
     },
     {
-        'name': 'ITT',
+        'name': 'Instructor Training',
         'priority': 8,
-        'details': 'Instructor Trainer Training (Trainer Training)',
+        'details': 'Instructor Trainer',
     },
     {
         'name': 'cancelled',
@@ -40,11 +35,6 @@ TAGS = [
         'details': "Events with lost contact with the host or TTT events that aren't running.",
     },
     {
-        'name': 'LSO',
-        'priority': 13,
-        'details': 'Lesson specific onboarding',
-    },
-    {
         'name': 'hackathon',
         'priority': 15,
         'details': 'Event is a hackathon',
@@ -55,35 +45,27 @@ TAGS = [
         'details': 'Curriculum Workshop',
     },
     {
-        'name': 'TTT' ,
-        'priority': 70,
-        'details': 'Train the Trainers',
-    },
-    {
-        'name': 'Pilot',
-        'priority': 90,
-        'details': 'To use for pilots of new or revamped curricula',
-    },
-    {
-        'name': 'for-profit',
-        'priority': 100,
-        'details': 'Corporate or for-profit institutions that may be paying higher fees',
-    },
-    {
-        'name': 'AE',
-        'priority': 110,
-        'details': 'Alumnus event',
-    },
-    {
         'name': 'HIC',
-        'priority': 120,
-        'details': 'Event occurring in a High income country',
+        'priority': 100,
+        'details': 'Event being done in a High Income Country',
     },
     {
         'name': 'LMIC',
         'priority': 130,
         'details': 'Event occurring in a Low or Middle Income Country',
     },
+    {
+        'name': 'ECR',
+        'priority': 140,
+        'details': 'Event is a school for ECRs',
+    },
+    {
+        'name': 'Data Steward',
+        'priority': 110,
+        'details': 'Event is a Data Steward training event',
+    },    
+    
+    
 ]
 
 
