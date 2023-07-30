@@ -25,9 +25,28 @@ $ docker build -t amy:latest -t amy:${LAST_COMMIT} --label commit=${LAST_COMMIT}
 
 ## Deployment
 
-Deployment is presently done manually (vimming into file and updating version of amy image, then running `docker compose up -d`). However, this can be fully automated (and will be) in a production setting using Github Actions runner on VM.
+Deployment is presently done manually (vimming into file and updating version of amy image, then running `docker compose up -d`). However, this can be fully automated (and will be) in a production setting using Github Actions runner on VM. In short:
+
+1. Use ssh to enter machine
+2. Goto `/data/amy-deployment`
+3. Update tag in `docker-compose.yml`
+4. `docker compose up -d`
 
 Presently, the test environment is running with DigitalOcean in Amsterdam.
+
+### Deploying changes to tags, curriculi, etch
+
+Most of these changes are (intentionally) present within the management commands. Calling these management commands must be called from Amy's virtual environment.
+
+In order to apply these changes to the existing env, do the following:
+
+- Do a deployment, as noted above. Simply update the tag of the docker containers for amy, the rqworker and rqscheduler, and `docker compose up -d`
+- Once all container are up:
+- `docker exec -it <amy container name> bash`
+- `source /venv/amy/bin/activate`
+- `python manage.py <management_command_name>`
+
+The name of the management command is the same as the filename, minus `.py`. You can also request `python manage.py help` to get a list of management commands.
 
 ## Development
 
