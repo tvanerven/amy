@@ -44,8 +44,8 @@
       {% endfor %}
     </td>
   </tr>
-  <tr>
-    <th rowspan="4">Location details:</th>
+  <!--<tr>
+    ><th rowspan="4">Location details:</th>
     <th class="{% if not event.country %}table-danger{% endif %}">Country:</th>
     <td class="{% if not event.country %}table-danger{% endif %}">
     {% if event.country %}
@@ -68,7 +68,7 @@
         <a class="btn btn-danger btn-sm float-right" id="error_nearest_instructors" tabindex="0" role="button" data-toggle="popover" title="Search error" data-content="Cannot search for nearest instructors without latitude and longitude of event's location.">Error</a>
       {% endif %}
     </td>
-  </tr>
+  </tr>--->
   <tr><th>Related workshop request:</th>
     <td colspan="2">{% if event|one2one_exists:"workshoprequest" %}<a href="{{ event.workshoprequest.get_absolute_url }}">{{ event.workshoprequest }}</a>{% else %}&mdash;{% endif %}</td></tr>
   <tr><th>Related workshop inquiry:</th>
